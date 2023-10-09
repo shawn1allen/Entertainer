@@ -1,0 +1,9 @@
+.nav-text {
+    text-decoration: none;
+    color: white;
+    transition: color .3s ease;
+}
+
+.nav-text:hover {
+    color: #ff002b; /* Change color to red on hover */
+}
