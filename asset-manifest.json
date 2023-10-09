@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sandbox/static/css/main.36dc444a.css",
+    "main.js": "/sandbox/static/js/main.6949739f.js",
+    "static/media/shutterstock_253662781-1920x1080.webp": "/sandbox/static/media/shutterstock_253662781-1920x1080.605e4c6eea8478049b4d.webp",
+    "static/media/The-Entertainer-Logo-White.png": "/sandbox/static/media/The-Entertainer-Logo-White.6e6fd5da582e2e76c884.png",
+    "index.html": "/sandbox/index.html",
+    "main.36dc444a.css.map": "/sandbox/static/css/main.36dc444a.css.map",
+    "main.6949739f.js.map": "/sandbox/static/js/main.6949739f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36dc444a.css",
+    "static/js/main.6949739f.js"
+  ]
+}
