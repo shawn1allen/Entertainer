@@ -22,6 +22,8 @@ import { animateScroll as scroll } from 'react-scroll';
 import './Navbar.css'
 import Logo from '../../assets/images/The-Entertainer-Logo-White.png';
 
+
+
 function ResponsiveAppBar({ sections }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -90,7 +92,8 @@ function ResponsiveAppBar({ sections }) {
     };
 
     return (
-        <AppBar position="static" sx={{ background: 'transparent', boxShadow: 'none', position: 'fixed', padding: '30px', zIndex: 100 }}>
+        
+        <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none', zIndex: 100, position: 'relative', marginBottom: '-90px', paddingTop: '20px'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography

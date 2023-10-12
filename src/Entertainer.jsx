@@ -13,8 +13,8 @@ const Entertainer = () => {
         <div>
             <div style={{ position: 'relative', zIndex: 1 }}>
                 <Navbar sections={sections} />
-                <Sidebar />
-                <Content sections={sections} />
+                {/* <Sidebar /> */}
+                <Content sections={sections}/>
                 <Footer />
             </div>
 

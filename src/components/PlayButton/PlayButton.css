@@ -1,0 +1,13 @@
+/* PlayButton.css */
+.play-button-container {
+    position: relative;
+  }
+  
+  .play-button {
+    transition: transform .3s ease; /* Add a transition effect for the transform property */
+  }
+  
+  .play-button:hover {
+    transform: scale(1.2); /* Make the play button 20% larger on hover */
+    color: #ff002b;
+  }
