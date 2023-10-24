@@ -16,9 +16,27 @@ function PlayButton() {
 
   return (
     <div className="play-button-container">
-      <IconButton className="play-button" color="primary" onClick={handleOpen} sx={{ fontSize: '4rem', padding: '30px', marginTop: '80px', border: '2px solid', borderRadius: '50%', color: 'white' }}>
+      <IconButton
+        className="play-button"
+        color="primary"
+        onClick={handleOpen}
+        sx={{
+          fontSize: '4rem',
+          padding: '30px',
+          marginTop: '80px',
+          border: '2px solid',
+          borderRadius: '50%',
+          color: 'white',
+          transition: 'transform .3s ease',
+          '&:hover': {
+            transform: 'scale(1.2)',
+            color: '#ff002b',
+          },
+        }}
+      >
         <PlayArrowIcon fontSize="inherit" />
       </IconButton>
+
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
         {/* Embedded YouTube video with responsive dimensions */}
         <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>

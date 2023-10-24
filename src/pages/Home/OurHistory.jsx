@@ -31,29 +31,20 @@ const OurHistory = () => {
                 padding: '0 10% 0 20%',
                 flexWrap: 'wrap',
                 minHeight: '100vh',
+                backgroundImage: `url(${backgroundImage2})`, // Gray background color
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
             }}
         >
-            {/* Parallax Background Image */}
-            <div
-                style={{
-                    position: 'fixed',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundImage: `url(${backgroundImage2})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    zIndex: -15,
-                }}
-            />
 
             {/* Content */}
             <div style={{ width: '100%', flexBasis: '48%', minWidth: '200px', marginBottom: '20px' }}>
                 <img src={Image} alt="40 Years" style={{ maxWidth: '400px', width: '100%', height: 'auto', marginTop: '30px' }} />
             </div>
             <div style={{ width: '100%', flexBasis: '48%', minWidth: '200px', marginBottom: '20px' }}>
-            <Typography
+                <Typography
                     variant="h1"
                     sx={{
                         marginTop: '20px',

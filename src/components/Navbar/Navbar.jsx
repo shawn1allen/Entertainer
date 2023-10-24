@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 
 //MUI imports
 import AppBar from '@mui/material/AppBar';
@@ -13,25 +13,47 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
 
-import { animateScroll as scroll } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 import './Navbar.css'
 import Logo from '../../assets/images/The-Entertainer-Logo-White.png';
+import NavScroll from '../NavScroll';
+
+function HideOnScroll(props) {
+    const { children } = props;
+    const trigger = useScrollTrigger();
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
+}
 
 
 
 function ResponsiveAppBar({ sections }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+    const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+
+    const handleAboutHover = () => {
+        setAboutDropdownOpen(true);
     };
-    const handleClose = () => {
-        setAnchorEl(null);
+
+    const handleAboutLeave = () => {
+        setAboutDropdownOpen(false);
+    };
+
+    const handleServicesHover = () => {
+        setServicesDropdownOpen(true);
+    };
+
+    const handleServicesLeave = () => {
+        setServicesDropdownOpen(false);
     };
 
     const [state, setState] = React.useState({
@@ -79,122 +101,103 @@ function ResponsiveAppBar({ sections }) {
         </Box>
     );
 
-    const scrollToSection = (targetSectionIndex) => {
-        console.log("Trying to scroll")
-
-        console.log(targetSectionIndex)
-
-        scroll.scrollTo(sections.indexOf(targetSectionIndex) * window.innerHeight, {
-            duration: 500,
-            smooth: true,
-        });
-
-    };
-
     return (
-        
-        <AppBar sx={{ backgroundColor: 'transparent', boxShadow: 'none', zIndex: 100, position: 'relative', marginBottom: '-90px', paddingTop: '20px'}}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
-                        sx={{
-                            mr: 2,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        <img src={Logo} alt="Logo" style={{ height: '50px' }} />
-
-                    </Typography>
-
-                    {['right'].map((anchor) => (
-                        <React.Fragment key={anchor}>
-                            <Drawer
-                                anchor={anchor}
-                                open={state[anchor]}
-                                onClose={toggleDrawer(anchor, false)}
-                            >
-                                {list(anchor)}
-                            </Drawer>
-                        </React.Fragment>
-                    ))}
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'right' }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={toggleDrawer('right', true)}
-                            color="inherit"
+        <HideOnScroll>
+            <AppBar sx={{ padding: '10px', backgroundColor: '#272833', zIndex: '10001' }}>
+                <Container maxWidth="xl">
+                    <Toolbar disableGutters>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="a"
+                            href="#app-bar-with-responsive-menu"
+                            sx={{
+                                mr: 2,
+                                fontFamily: 'monospace',
+                                fontWeight: 700,
+                                letterSpacing: '.3rem',
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
                         >
-                            <MenuIcon />
-                        </IconButton>
+                            <img src={Logo} alt="Logo" style={{ height: '50px' }} />
 
-                    </Box>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
-                        <Button
-                            className='nav-text'
-                            onClick={console.log("page 1")}
-                            sx={{ my: 2, color: 'white', display: 'block' }}>
-                            Home
-                        </Button>
-                        <Button
-                            className='nav-text'
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleOpen}
-                            // onMouseLeave={handleClose}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            About
-                        </Button>
-                        <Button
-                            className='nav-text'
-
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            Services
-                        </Button>
-                        <Button
-                            className='nav-text'
-                            onClick={console.log("page 1")}
-                            sx={{ my: 2, color: 'white', display: 'block' }}>
-                            Contact
-                        </Button>
-                    </Box>
-
-                    <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                        }}
-                    >
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
-                        <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem onClick={handleClose}>Logout</MenuItem>
-                    </Menu>
-
-                    <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-                        <Typography>
-                            <a className='nav-text' href='tel:5738935006'>573-893-5006</a>
                         </Typography>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
+
+                        {['right'].map((anchor) => (
+                            <React.Fragment key={anchor}>
+                                <Drawer
+                                    anchor={anchor}
+                                    open={state[anchor]}
+                                    onClose={toggleDrawer(anchor, false)}
+                                >
+                                    {list(anchor)}
+                                </Drawer>
+                            </React.Fragment>
+                        ))}
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'right' }}>
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={toggleDrawer('right', true)}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+
+                        </Box>
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', color: 'white' } }}>
+                            <NavScroll title="Home" to="home" />
+
+                            <ScrollLink to="aboutUs" smooth={true} duration={1000} style={{ color: 'white' }}>
+                                <div className="dropdown" onMouseEnter={handleAboutHover} onMouseLeave={handleAboutLeave}>
+                                    <Button className={`dropbtn ${aboutDropdownOpen ? 'active' : ''} nav-text`} >
+                                        About
+                                    </Button>
+                                    {aboutDropdownOpen && (
+                                        <div className="dropdown-content" style={{ color: 'white' }}>
+                                            <NavScroll title="Our History" to="ourHistory" />
+                                            <NavScroll title="Testimonials" to="testimonials" />
+                                            <NavScroll title="FAQ's" to="faqs" />
+                                            <NavScroll title="Partners" to="partners" />
+                                            <NavScroll title="Quality Service" to="qualityService" />
+                                        </div>
+                                    )}
+                                </div>
+                            </ScrollLink>
+
+                            <ScrollLink to="audioVideo" smooth={true} duration={1000} style={{ color: 'white' }}>
+                                <div className="dropdown" onMouseEnter={handleServicesHover} onMouseLeave={handleServicesLeave}>
+                                    <Button className={`dropbtn ${servicesDropdownOpen ? 'active' : ''} nav-text`}>
+                                        Services
+                                    </Button>
+                                    {servicesDropdownOpen && (
+                                        <div className="dropdown-content">
+                                            <NavScroll title="Audio / Video" to="audioVideo" />
+                                            <NavScroll title="Marine / Car Audio" to="marineCar" />
+                                            <NavScroll title="Security / Cameras" to="surveillance" />
+                                            <NavScroll title="Lighting / Shades" to="automation" />
+                                        </div>
+                                    )}
+                                </div>
+                            </ScrollLink>
+
+
+                            <NavScroll title="Contact" to="contact" />
+                        </Box>
+
+                        <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                            <Typography>
+                                <a className='nav-text' href='tel:5738935006'>573-893-5006</a>
+                            </Typography>
+                        </Box>
+                    </Toolbar>
+                </Container>
+            </AppBar></HideOnScroll>
     );
 }
 export default ResponsiveAppBar;

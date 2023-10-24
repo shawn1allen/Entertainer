@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Element, animateScroll as scroll } from 'react-scroll';
-import Home from './Content/Home';
-import AboutUs from './Content/AboutUs';
-import OurHistory from './Content/OurHistory';
-import Testimonials from './Content/Testimonials';
-import AudioVideo from './Content/AudioVideo';
-import MarineCar from './Content/MarineCar';
-import Security from './Content/Security';
-import Cameras from './Content/Cameras';
-import Lighting from './Content/Lighting';
-import Shades from './Content/Shades';
-import Partners from './Content/Partners';
-import FAQs from './Content/FAQs';
-import Commitment from './Content/Commitment';
-import Contact from './Content/Contact';
+import Home from './Home/Home';
+import AboutUs from './Home/AboutUs';
+import OurHistory from './Home/OurHistory';
+import Testimonials from './Home/Testimonials';
+import AudioVideo from './Services/AudioVideo';
+import MarineCar from './Services/MarineCar';
+import Security from './Services/Security';
+import Cameras from './Services/Cameras';
+import Lighting from './Services/Lighting';
+import Shades from './Services/Shades';
+import Partners from './Home/Partners';
+import FAQs from './Home/FAQs';
+import Commitment from './Home/Commitment';
+import Contact from './Home/Contact';
+import Surveillance from './Services/Surveillance';
+import Automation from './Services/Automation';
 
-// revert back to this ----------------------------
+// const sections = ['home', 'aboutUs', 'ourHistory', 'testimonials', 'audioVideo', 'marineCar', 'security', 'cameras', 'lighting', 'shades', 'partners', 'faqs', 'commitment', 'contact'];
 
 const Content = ({sections}) => {
     // const [touchStart, setTouchStart] = useState(null)
@@ -145,7 +147,7 @@ const Content = ({sections}) => {
                 // onTouchMove={(e) => onTouchMove(e)}
                 // onTouchEnd={(e) => onTouchEnd(e, sections[5], sections[7])}
             >
-                <Security />
+                <Surveillance />
             </Element>
             <Element
                 name={sections[7]}
@@ -154,28 +156,11 @@ const Content = ({sections}) => {
                 // onTouchMove={(e) => onTouchMove(e)}
                 // onTouchEnd={(e) => onTouchEnd(e, sections[6], sections[8])}
             >
-                <Cameras />
+                <Automation />
             </Element>
+            
             <Element
                 name={sections[8]}
-                // onWheel={(event) => handleWheel(event, sections[7], sections[9])}
-                // onTouchStart={(e) => onTouchStart(e)}
-                // onTouchMove={(e) => onTouchMove(e)}
-                // onTouchEnd={(e) => onTouchEnd(e, sections[7], sections[9])}
-            >
-                <Lighting />
-            </Element>
-            <Element
-                name={sections[9]}
-                // onWheel={(event) => handleWheel(event, sections[8], sections[10])}
-                // onTouchStart={(e) => onTouchStart(e)}
-                // onTouchMove={(e) => onTouchMove(e)}
-                // onTouchEnd={(e) => onTouchEnd(e, sections[8], sections[10])}
-            >
-                <Shades />
-            </Element>
-            <Element
-                name={sections[10]}
                 // onWheel={(event) => handleWheel(event, sections[9], sections[11])}
                 // onTouchStart={(e) => onTouchStart(e)}
                 // onTouchMove={(e) => onTouchMove(e)}
@@ -184,7 +169,7 @@ const Content = ({sections}) => {
                 <Partners />
             </Element>
             <Element
-                name={sections[11]}
+                name={sections[9]}
                 // onWheel={(event) => handleWheel(event, sections[10], sections[12])}
                 // onTouchStart={(e) => onTouchStart(e)}
                 // onTouchMove={(e) => onTouchMove(e)}
@@ -193,7 +178,7 @@ const Content = ({sections}) => {
                 <FAQs />
             </Element>
             <Element
-                name={sections[12]}
+                name={sections[10]}
                 // onWheel={(event) => handleWheel(event, sections[11], sections[13])}
                 // onTouchStart={(e) => onTouchStart(e)}
                 // onTouchMove={(e) => onTouchMove(e)}
@@ -202,7 +187,7 @@ const Content = ({sections}) => {
                 <Commitment />
             </Element>
             <Element
-                name={sections[13]}
+                name={sections[11]}
                 // onWheel={(event) => handleWheel(event, sections[12], null)}
                 // onTouchStart={(e) => onTouchStart(e)}
                 // onTouchMove={(e) => onTouchMove(e)}

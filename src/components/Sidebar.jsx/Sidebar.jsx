@@ -2,21 +2,26 @@ import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Box } from '@mui/material';
+import './Sidebar.css'
+import Button from '@mui/material/Button';
 
 const Sidebar = () => {
     return (
-        <Drawer
-            variant="permanent"
-            sx={{
-                width: '180px',
-                backgroundColor: 'red',
-            }}
-        >
-            <div style={{ width: '1px', height: '30%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'absolute', top: '100px', left: '50%' }} />
-            <FacebookIcon color="primary" style={{ cursor: 'pointer', position: 'absolute', top: '45%' }} />
-            <InstagramIcon color="primary" style={{ cursor: 'pointer', position: 'absolute', top: '55%' }} />
-            <div style={{ width: '1px', height: '30%', backgroundColor: 'rgba(0,0,0,0.5)', position: 'absolute', bottom: '100px', left: '50%' }} />
-        </Drawer>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+            <div className='container'>
+                <div className='line'></div>
+                <a href='https://www.facebook.com/TheEntertainerJC' target='_blank'>
+                    <FacebookIcon className='icon' />
+                </a>
+                <a href='https://www.instagram.com/theentertainerjc/' target='_blank' >
+                    <InstagramIcon className='icon' />
+                </a>
+                <div className='line'></div>
+            </div>
+
+        </Box>
     );
 };
 

@@ -1,0 +1,58 @@
+{
+    "audioVideo": {
+        "page1": {
+            "backgroundImage": "shutterstock_1951633186-2-1920x1080.webp",
+            "heading": "Home Theater",
+            "text": "At the Entertainer, we believe that our home theater and audio installations are unparalleled in the industry. our commitment to delivering the highest quality products and services sets us apart from the competition. Our team of experts have extensive knowledge and experience in designing and installing home theater and audio systems that are customized to meet the unique needs of each client.",
+            "link": "/"
+        },
+        "page2": {
+            "backgroundImage": "Sonos_Arc_Hero_Black.jpg",
+            "heading": "TV Sound",
+            "text": "Working with client and community, we deliver masterplans that create vibrant new places and spaces, attract people, and encourage investment through.",
+            "link": "/"
+        }
+    },
+    "marineCar": {
+        "page1": {
+            "backgroundImage": "shutterstock_2101601467-1920x1080.webp",
+            "heading": "Marine Audio",
+            "text": "Page 1 Text Content for Home Automation Service",
+            "link": "/"
+        },
+        "page2": {
+            "backgroundImage": "shutterstock_2101601467-1920x1080.webp",
+            "heading": "Car Audio",
+            "text": "Page 2 Text Content for Home Automation Service",
+            "link": "/"
+        }
+    },
+    "surveillance": {
+        "page1": {
+            "backgroundImage": "shutterstock_722628091-1920x1080.webp",
+            "heading": "Security",
+            "text": "Page 1 Text Content for Home Automation Service",
+            "link": "/"
+        },
+        "page2": {
+            "backgroundImage": "shutterstock_1064708756-1920x1080.webp",
+            "heading": "Cameras",
+            "text": "Page 2 Text Content for Home Automation Service",
+            "link": "/"
+        }
+    },
+    "automation": {
+        "page1": {
+            "backgroundImage": "shutterstock_139225268_edited-1920x1080.webp",
+            "heading": "Lighting",
+            "text": "Page 1 Text Content for Home Automation Service",
+            "link": "/"
+        },
+        "page2": {
+            "backgroundImage": "shutterstock_1707159391-1-1920x1080.webp",
+            "heading": "Shades",
+            "text": "Page 2 Text Content for Home Automation Service",
+            "link": "/"
+        }
+    }
+}

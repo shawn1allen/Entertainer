@@ -1,0 +1,67 @@
+/* Carousel Container */
+.carousel-container {
+  width: 100vw;
+  color: white;
+}
+
+/* Individual Page */
+.carousel-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+  transition: opacity 0.8s ease-in-out;
+  position: absolute;
+  
+}
+
+.carousel-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 60%;
+}
+
+/* Add styles for your title, text, and button */
+.carousel-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.carousel-text {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.current {
+  opacity: 1;
+}
+
+.not-current {
+  opacity: 0;
+  pointer-events: none; /* Disable interactions for hidden pages */
+}
+
+.arrow {
+  height: 50px;
+  background: transparent !important;
+  border: 2px solid red !important;
+  font-size: 5rem;
+}
+
+.arrow:hover {
+  color: red;
+}
+
+.left-arrow {
+
+} 
+
+.right-arrow {
+  
+}

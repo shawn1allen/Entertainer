@@ -1,0 +1,26 @@
+.container {
+    height: 100vh;
+    width: 30px;
+    position: fixed;
+    left: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.line {
+    background-color: whitesmoke;
+    width: 1px;
+    height: 30%;
+    
+}
+
+.icon {
+    color: white;
+}
+
+.icon:hover {
+    color: red;
+}
